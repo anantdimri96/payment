@@ -74,7 +74,7 @@
     <!--
               </tbody>
             </table> -->
-            <% payment_form_for_payu 'pwQIna', 'ysoX9Uqh',
+            <% payment_form_for_payu ENV['KEY'], ENV['SALT'],
                :txnid => @order.txnid,
                :amount => @order.amount,
                :productinfo => 'contentstation',
