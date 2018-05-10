@@ -1,0 +1,13 @@
+// Place all the styles related to the card controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.hidden {
+  display: none !important;
+}
+#loading-div{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("loader.svg");
+	background-color: #FFF;
+}

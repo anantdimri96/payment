@@ -1,0 +1,2 @@
+class TxnDetail < ApplicationRecord
+end

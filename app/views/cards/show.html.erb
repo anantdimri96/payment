@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paytest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div id="loading-div" style="text-align:center; margin-top:20%;">
+      <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+      <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" stroke="#000">
+          <g fill="none" fill-rule="evenodd" stroke-width="2">
+              <circle cx="22" cy="22" r="1">
+                  <animate attributeName="r"
+                      begin="0s" dur="1.8s"
+                      values="1; 20"
+                      calcMode="spline"
+                      keyTimes="0; 1"
+                      keySplines="0.165, 0.84, 0.44, 1"
+                      repeatCount="indefinite" />
+                  <animate attributeName="stroke-opacity"
+                      begin="0s" dur="1.8s"
+                      values="1; 0"
+                      calcMode="spline"
+                      keyTimes="0; 1"
+                      keySplines="0.3, 0.61, 0.355, 1"
+                      repeatCount="indefinite" />
+              </circle>
+              <circle cx="22" cy="22" r="1">
+                  <animate attributeName="r"
+                      begin="-0.9s" dur="1.8s"
+                      values="1; 20"
+                      calcMode="spline"
+                      keyTimes="0; 1"
+                      keySplines="0.165, 0.84, 0.44, 1"
+                      repeatCount="indefinite" />
+                  <animate attributeName="stroke-opacity"
+                      begin="-0.9s" dur="1.8s"
+                      values="1; 0"
+                      calcMode="spline"
+                      keyTimes="0; 1"
+                      keySplines="0.3, 0.61, 0.355, 1"
+                      repeatCount="indefinite" />
+              </circle>
+          </g>
+      </svg>
+
+    </div>
+       <div class="body-wrapper" style="display:none !important;">
+    <!--
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 table-responsive" style="color:white"> -->
+          <!-- <h3>Confirm details</h3>
+
+          <table class="table table-bordered">
+            <thead>
+              <tbody>
+                <tr>
+                  <td >Name</td>
+                  <td ><%=@order.name%></td>
+                </tr>
+                <tr>
+                  <td >
+                    Amount</td>
+                  <td><%=@order.amount%></td>
+                </tr> -->
+
+    <!--
+              </tbody>
+            </table> -->
+            <% payment_form_for_payu 'pwQIna', 'ysoX9Uqh',
+               :txnid => @order.txnid,
+               :amount => @order.amount,
+               :productinfo => 'contentstation',
+               :firstname => @order.name,
+               :email => @order.email,
+               :phone => @order.phone_no,
+               :surl => 'http://localhost:3000/payu_callback',
+               :furl => 'http://localhost:3000/payu_callback',
+               :html => { :id => 'payment-form' } %>
+
+
+         </div>
+
+
+
+    </div>
+    <!-- </div> -->
+
+
+    <script type="text/javascript">
+    window.onload = function () {
+
+    }
+    $(document).ready(function(){
+      setTimeout(function(){
+        $("#payment-form").submit();
+      }, 3000);
+    });
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <!-- <%= yield %> -->
+
+  </body>
+</html>

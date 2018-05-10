@@ -1,0 +1,38 @@
+
+    <center>
+      <h2 style=" padding-top:10%;color:white; ">Transaction successful
+      </h2>
+      <br><br>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 table-responsive" style="color:white">
+          <table class="table table-bordered">
+            <thead>
+              <tbody>
+                <tr>
+                  <td>
+                    Transaction ID:</td>
+                  <td><%=@txn_details.pay_id%></td>
+                </tr>
+                <tr>
+                  <td >
+                    Amount</td>
+                  <td><%=@txn_details.amount%></td>
+                </tr>
+                <tr>
+                  <td >Status</td>
+                  <td ><%=@txn_details.status%></td>
+                </tr>
+                <tr>
+                  <td >Name</td>
+                  <td ><%=@txn_details.name%></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </center>
+
+      <div class="loader"></div>
